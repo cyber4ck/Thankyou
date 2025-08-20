@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>मनःपूर्वक धन्यवाद</title>
+  <meta name="theme-color" content="#1a1338" />
+  <!-- Royal Devanagari fonts: Yatra One (display), Tiro Devanagari Marathi (serif), Hind (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg1:#0d0a1c;
+      --bg2:#17123a;
+      --bg3:#231a57;
+      --text:#ffffff;
+      --muted:#e9e5ffcc;
+      --gold1:#f7d774;
+      --gold2:#d9a441;
+      --gold3:#fff2b0;
+      --glass: rgba(255,255,255,0.10);
+      --glass-b: rgba(255,255,255,0.18);
+      --shadow: 0 10px 26px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background: linear-gradient(140deg, var(--bg1), var(--bg2), var(--bg3));
+      background-size: 300% 300%;
+      font-family: Hind, "Noto Sans Devanagari", system-ui, -apple-system, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      animation: bgShift 18s ease infinite;
+    }
+    @keyframes bgShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    .wrap{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding: max(16px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom));
+    }
+
+    .card{
+      width: min(560px, 94vw);
+      background: linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.06));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-b);
+      border-radius: 20px;
+      padding: 18px 16px;
+      position: relative;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: conic-gradient(from 0deg, var(--gold1), var(--gold2), var(--gold3), var(--gold1));
+      filter: blur(18px);
+      opacity:.16;
+      z-index:-1;
+    }
+
+    .heading{
+      text-align:center;
+      margin: 4px 6px 12px;
+    }
+    .emoji{ font-size: 28px; margin: 0 6px; }
+    .title{
+      margin: 0 0 6px 0;
+      line-height: 1.05;
+      font-size: clamp(32px, 7vw, 44px);
+      font-family: "Yatra One", "Tiro Devanagari Marathi", serif;
+      letter-spacing: .6px;
+      background: linear-gradient(92deg, var(--gold3), var(--gold1), var(--gold2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 10px 30px rgba(0,0,0,.28);
+      display:inline-block;
+    }
+    .sub{
+      margin: 0 auto;
+      max-width: 36ch;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: clamp(14px, 3.8vw, 16px);
+    }
+
+    .divider{
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+      margin: 14px 0 8px;
+    }
+
+    .content{
+      display: grid;
+      gap: 10px;
+    }
+    .bubble{
+      background: var(--glass);
+      border: 1px solid var(--glass-b);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .msg{
+      margin:0;
+      font-size: clamp(16px, 4.2vw, 18px);
+      line-height: 1.6;
+      font-family: "Tiro Devanagari Marathi", "Noto Serif Devanagari", serif;
+    }
+    .msg strong{
+      background: linear-gradient(92deg, var(--gold3), var(--gold1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .actions{
+      margin-top: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn{
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+      border:0; outline:0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 16px;
+      color:#2c1b00;
+      background: linear-gradient(135deg, #fff7e0, #ffe7a8);
+      box-shadow: 0 10px 24px rgba(0,0,0,.28);
+      transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+      min-width: 46%;
+    }
+    .btn:active{ transform: translateY(1px); filter: brightness(.98); }
+    .btn-primary{
+      color:#201400;
+      background: linear-gradient(135deg, #ffd77a, #f2b24b);
+    }
+
+    .footer{
+      margin-top: 8px;
+      text-align:center;
+      color: #efe8ffcc;
+      font-size: 13px;
+    }
+    .tag{
+      display:inline-block;
+      margin-top:6px;
+      padding:6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--glass-b);
+      background: rgba(255,255,255,.08);
+      font-weight:600;
+    }
+
+    /* Balloons - lighter for mobile */
+    .balloons{
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      opacity: .85;
+    }
+    .balloon{
+      position: absolute; bottom: -120px; width: 56px; height: 72px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,.12) 35%), var(--c, #ffcc66);
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+      animation: rise var(--speed, 18s) linear infinite;
+    }
+    .balloon::after{
+      content:"";
+      position: absolute; bottom:-60px; left: 50%; width:2px; height:60px; background: rgba(255,255,255,0.6);
+    }
+    .balloons .balloon:nth-child(1){ left: 8%;  --c: linear-gradient(135deg,#ffe29f,#f7b54b);  --speed: 21s; animation-delay: 0s;}
+    .balloons .balloon:nth-child(2){ left: 46%; --c: linear-gradient(135deg,#fff1a8,#ffd86b); --speed: 19s; animation-delay: 1.4s;}
+    .balloons .balloon:nth-child(3){ left: 82%; --c: linear-gradient(135deg,#ffd67b,#f2b24b); --speed: 22s; animation-delay: .6s;}
+    @keyframes rise {
+      0%{ transform: translateY(0) translateX(0) }
+      50%{ transform: translateY(-48vh) translateX(10px) }
+      100%{ transform: translateY(-100vh) translateX(-6px) }
+    }
+
+    /* Accessibility: respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      body{ animation: none; }
+      .balloon{ animation: none; }
+    }
+
+    /* Confetti canvas */
+    #confetti-canvas{ position: fixed; inset:0; pointer-events:none; z-index: 2; }
+  </style>
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="wrap">
+    <div class="card" role="group" aria-label="धन्यवाद संदेश">
+      <div class="balloons" aria-hidden="true">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+      </div>
+
+      <div class="heading">
+        <span class="emoji" aria-hidden="true">👑</span>
+        <h1 class="title" aria-label="मनःपूर्वक धन्यवाद">मनःपूर्वक धन्यवाद</h1>
+        <span class="emoji" aria-hidden="true">🎂</span>
+        <p class="sub">तुमच्या सुंदर शुभेच्छांमुळे माझा वाढदिवस खास झाला. 💛</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="content">
+        <div class="bubble">
+          <p class="msg">
+            माझ्या वाढदिवसासाठी दिलेल्या प्रेमळ शुभेच्छा, संदेश आणि आशीर्वादांसाठी <strong> Thank you ❤️</strong>!
+            तुमच्या प्रत्येक शब्दामुळे माझा दिवस उजळून निघाला. मी मनापासून आभारी आहे. ✨
+          </p>
+        </div>
+        <div class="bubble">
+          <p class="msg">
+            लवकरच एकत्र साजरा करूया—केक आणि मस्त आठवणी! 🎈🍰
+          </p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="celebrateBtn" aria-label="पुन्हा सेलिब्रेट">पुन्हा सेलिब्रेट ✨</button>
+      
+      </div>
+
+      <div class="footer">
+        <div class="tag">#धन्यवाद #वाढदिवस</div>
+        <p style="margin:8px 0 0">आपल्या प्रेमळ शुभेच्छांसाठी पुन्हा एकदा धन्यवाद! </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function burstConfetti(power = 0.85, spread = 70){
+      const duration = 800;
+      const end = Date.now() + duration;
+      (function frame(){
+        confetti({
+          particleCount: Math.round(36 * power),
+          startVelocity: 38 * power,
+          spread,
+          origin: { x: 0.2 + Math.random()*0.6, y: 0.7 },
+          colors: ["#ffd77a","#f2b24b","#fff1a8","#f7d774","#ffe7a8"]
+        });
+        if(Date.now() < end) requestAnimationFrame(frame);
+      })();
+    }
+
+    // Setup on load
+    window.addEventListener('load', () => {
+      const cnv = document.getElementById('confetti-canvas');
+      confetti.create(cnv, { resize: true, useWorker: true });
+      if(!prefersReduced){
+        setTimeout(() => burstConfetti(1, 75), 400);
+        setTimeout(() => burstConfetti(0.7, 55), 1200);
+      }
+    });
+
+    document.getElementById('celebrateBtn').addEventListener('click', () => burstConfetti(1, 75));
+
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const text = "माझ्या वाढदिवसासाठी दिलेल्या सुंदर शुभेच्छांसाठी मनःपूर्वक धन्यवाद! तुमच्या प्रेमळ शब्दांनी माझा दिवस खास झाला. मी मनापासून आभारी आहे. 💛🎉";
+      try{
+        await navigator.clipboard.writeText(text);
+        const btn = document.getElementById('copyBtn');
+        const old = btn.textContent;
+        btn.textContent = "कॉपी झाले! ✅";
+        setTimeout(() => btn.textContent = old, 1400);
+        if(!prefersReduced) confetti({ particleCount: 40, spread: 40, origin:{y:0.2}, colors:["#ffd77a","#f2b24b","#fff1a8"] });
+      }catch(e){
+        alert("कॉपी जमले नाही, कृपया मजकूर निवडून स्वतः कॉपी करा.");
+      }
+    });
+  </script>
+</body>
+</html>
